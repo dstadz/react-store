@@ -1,12 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import HomePage from './pages/homepage';
+import { useRoutes } from 'hookrouter';
 
-function App() {
+import './App.css';
+import routes from './Routes'
+
+
+const App = () => {
+  let match = useRoutes(routes)
+
   return (
     <div className="App">
-      <HomePage />
+      {match}
     </div>
   );
 }

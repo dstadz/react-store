@@ -22,5 +22,9 @@
   },
   "include": [
     "src"
-, "src/Components/MenuItem"  ]
+, "src/Components/MenuItem"  ],
+  "typeRoots": [
+    "./typings",
+    "../node_modules/@types"
+  ]
 }

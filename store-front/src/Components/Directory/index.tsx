@@ -1,31 +1,9 @@
 import React, { useState } from 'react'
 import MenuItem from '../MenuItem'
-
-
-const sectionList= [{
-  title: 'hats',
-  imageUrl:'',
-  id:1
-},{
-  title: 'jackets',
-  imageUrl:'',
-  id:2
-},{
-  title: 'sneakers',
-  imageUrl:'',
-  id:3
-},{
-  title: 'womens',
-  imageUrl:'',
-  id:4
-},{
-  title: 'mens',
-  imageUrl:'',
-  id:5
-},]
+import SECTIONS_DATA from '../../assets/crwn-clothing_sct6_local_images/sections.data.js'
 
 const Directory = () => {
-  const [sections, setSections] = useState(sectionList)
+  const [sections, setSections] = useState(SECTIONS_DATA)
 
   return (
     <div>

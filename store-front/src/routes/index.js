@@ -1,15 +1,15 @@
 import React  from "react";
 // import { Route } from "react-router-dom";
 
-import Home from '../Pages/Home'
-import ShopPage from '../Pages/ShopPage'
-import SignInUpPage from '../Pages/SignInUpPage'
-import Checkout from '../Pages/Checkout'
+import Home from '../pages/homepage'
+// import ShopPage from '../Pages/ShopPage'
+// import SignInUpPage from '../Pages/SignInUpPage'
+// import Checkout from '../Pages/Checkout'
 
 const routes = {
   '/': () => <Home />,
-  '/shop': () => <ShopPage />,
-  '/signin': () => <SignInUpPage/>,
-  '/checkout': () => <Checkout/>,
+  // '/shop': () => <ShopPage />,
+  // '/signin': () => <SignInUpPage/>,
+  // '/checkout': () => <Checkout/>,
 }
 export default routes
