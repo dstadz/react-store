@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { CustomButtonContainer } from './styles';
 
-export const CustomButton = ({ children, ...props }) => (
+
+interface ButtonInterface {
+  children:string,
+}
+
+const CustomButton: FC<ButtonInterface> = ({ children, ...props }) => (
   <CustomButtonContainer {...props}>{children}</CustomButtonContainer>
 );
 

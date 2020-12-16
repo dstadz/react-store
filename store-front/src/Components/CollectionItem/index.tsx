@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { CollectionItemContainer } from './styles'
 import { Url } from 'url';
 
 interface CollectionItemInterface {
@@ -9,7 +10,7 @@ interface CollectionItemInterface {
 
 const CollectionItem: FC<CollectionItemInterface> = ({name, imageUrl, price}) => {
   return (
-    <div>
+    <CollectionItemContainer>
       <div data-imageUrl={imageUrl} />
       <div>
         <span>{name}</span>
@@ -18,7 +19,7 @@ const CollectionItem: FC<CollectionItemInterface> = ({name, imageUrl, price}) =>
       <button onClick={() => console.log('click')}>
         Add to cart
       </button>
-    </div>
+    </CollectionItemContainer>
   )
 }
 
