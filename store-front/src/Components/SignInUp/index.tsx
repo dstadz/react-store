@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form"
 
+import { SignInWithGoogle } from '../../utils/firebase'
+
 type FormData = {
   email: string;
   password: string;
@@ -55,6 +57,8 @@ const SignInUp = () => {
         <br />
 
         <input type="submit" value={signIn ? "Log In" : "Lets get started!"} />
+        <button onClick={SignInWithGoogle}> Sign in with Google </button>
+
         <br/>
 
         {signIn

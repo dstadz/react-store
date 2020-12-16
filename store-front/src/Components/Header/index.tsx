@@ -1,19 +1,27 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { A } from 'hookrouter'
+import { auth } from '../../utils/firebase'
+import { HeaderContainer } from './styles'
 
+interface HeaderInterface {
+  currentUser: {} | null
+}
 
-const index = () => {
+const Header: FC<HeaderInterface> = ({ currentUser }) => {
   return (
-    <div>
-      <A href='/'> <div> LOGO </div> </A>
+    <HeaderContainer>
+      <A className='Logo' href='/'> <div> LOGO </div> </A>
       <div>
         <A href='/shop'> SHOP </A>
         <A href='/collections'> CONTACT </A>
-        <A href='/signin'> Sign In </A>
+        { currentUser
+          ? <span onClick={()=> auth.signOut()}> Sign Out </span>
+          : <A href='/signin'> Sign In </A>
+        }
       </div>
 
-    </div>
+    </HeaderContainer>
   )
 }
 
-export default index
+export default Header
