@@ -1,5 +1,5 @@
 import React from 'react'
-import Directory from '../../Components/Directory/index'
+import Directory from '../../Components/Directory/Directory'
 const HomePage = () => {
   return (
     <div>

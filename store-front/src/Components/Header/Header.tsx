@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { A } from 'hookrouter'
-import { auth } from '../../utils/firebase'
+import { auth } from '../../utils/firebase/firebase'
 import { HeaderContainer } from './styles'
 
 interface HeaderInterface {
@@ -8,7 +8,7 @@ interface HeaderInterface {
 }
 
 const Header: FC<HeaderInterface> = ({ currentUser }) => {
-  console.log(currentUser)
+  console.log({currentUser})
   return (
     <HeaderContainer>
       <A className='Logo' href='/'> <div> LOGO </div> </A>
@@ -22,8 +22,6 @@ const Header: FC<HeaderInterface> = ({ currentUser }) => {
           }}> Sign Out </span>
           : <A href='/signin'> Sign In </A>
         }
-
-          <span onClick={()=> { auth.signOut() }}> Sign Out </span>
       </div>
 
     </HeaderContainer>
