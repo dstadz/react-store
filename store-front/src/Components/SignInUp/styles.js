@@ -60,7 +60,7 @@ export const SignInUpContainer = styled.div`
     color: ${subColor};
     font-size: 16px;
     font-weight: normal;
-    position: absolute;
+    position: relative;
     pointer-events: none;
     left: 5px;
     top: 10px;

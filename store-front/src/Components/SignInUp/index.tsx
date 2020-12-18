@@ -14,15 +14,19 @@ type FormData = {
 
 const SignInUp = () => {
   const [signIn, setSignIn] = useState(true)
+  const [user, setUser] = useState({
+    email:'',
+    password:''
+  })
   const [isPassVis, setPassVis] = useState(false)
   const { register, setValue, handleSubmit, errors } = useForm<FormData>();
 
 
   const onSubmit = handleSubmit(async ({ email, password, confirmPassword }) => {
-    if (signIn) console.log(email, password);
+    if (signIn) console.log(email, password, confirmPassword);
 
     else {
-      if (password !== confirmPassword) alert('passwords do not match')
+      if (password !== confirmPassword) alert(`passwords do not match:,${password},${confirmPassword}`)
       try {
         const { user } = await auth.createUserWithEmailAndPassword(
           email,
@@ -30,86 +34,89 @@ const SignInUp = () => {
         )
         await createUserProfileDocument(user)
       }
-      catch{}
+      catch { }
     }
   });
 
   return (
     <SignInUpContainer>
-      <h3> {signIn ?"Log In" : "Sign Up"} </h3>
+      <div>
+        <h3> {signIn ? "Log In" : "Sign Up"} </h3>
 
-      <form onSubmit={onSubmit}>
-
-
-        <label> Email </label>
-        <div>
-          <input
-            type="text"
-            placeholder="email"
-            name="email"
-            ref={register({required: true, maxLength: 80})}
-          />
-        </div>
+        <form onSubmit={onSubmit}>
 
 
-        <label> Password </label>
-        <div>
-          <input
-            type={isPassVis ? "text" : "password" }
-            placeholder="password"
-            name="password"
-            ref={register({required: true, maxLength: 80})}
-          />
-          <span onClick={() => setPassVis(isPassVis => !isPassVis)}>{isPassVis ? "👓" : "🕶️" }</span>
-        </div>
-
-
-        {!signIn && <>
-          <label> Confirm Password </label>
+          <label> Email </label>
           <div>
             <input
-              type="password"
-              placeholder="password"
-              name="confirmpassword"
-              ref={register({required: true, maxLength: 80})}
+              type="text"
+              placeholder="email"
+              name="email"
+              ref={register({ required: true, maxLength: 80 })}
             />
           </div>
-        </> }
 
 
-        <br />
+          <label> Password </label>
+          <div>
+            <input
+              type={isPassVis ? "text" : "password"}
+              placeholder="password"
+              name="password"
+              ref={register({ required: true, maxLength: 80 })}
+            />
+            <span onClick={() => setPassVis(isPassVis => !isPassVis)}>
+              {isPassVis ? "👓" : "🕶️"}
+            </span>
+          </div>
 
-        {/* <input type="submit" value={signIn ? "Log In" : "Lets get started!"} />
+
+          {!signIn && <>
+            <label> Confirm Password </label>
+            <div>
+              <input
+                type="password"
+                placeholder="password"
+                name="confirmPassword"
+                ref={register({ required: true, maxLength: 80 })}
+              />
+            </div>
+          </>}
+
+
+          <br />
+
+          {/* <input type="submit" value={signIn ? "Log In" : "Lets get started!"} />
         <button onClick={SignInWithGoogle}> Sign in with Google </button> */}
 
 
 
-      <div className='Buttonbar'>
-        <CustomButton type='submit'> Sign in </CustomButton>
-        <CustomButton
-          type='button'
-          onClick={SignInWithGoogle}
-          isGoogleSignIn
-        >
-          Sign in with Google
+          <div className='Buttonbar'>
+            <CustomButton type='submit'> Sign in </CustomButton>
+            <CustomButton
+              onClick={SignInWithGoogle}
+              isGoogleSignIn
+            >
+              Sign in with Google
         </CustomButton>
+          </div>
+
+
+          <br />
+
+          {signIn
+            ? <span>
+              Don"t have an account?
+            <span onClick={() => setSignIn(signIn => !signIn)}> Sign Up </span>
+            </span>
+            : <span>
+              Already have an account?
+            <span onClick={() => setSignIn(signIn => !signIn)}> Sign In </span>
+            </span>
+          }
+
+        </form>
       </div>
-
-
-        <br/>
-
-        {signIn
-        ? <span>
-            Don"t have an account?
-            <span onClick={()=>setSignIn(signIn => !signIn)}> Sign Up </span>
-          </span>
-        : <span>
-            Already have an account?
-            <span onClick={()=>setSignIn(signIn => !signIn)}> Sign In </span>
-          </span>
-        }
-
-      </form>
     </SignInUpContainer>
   )
 }

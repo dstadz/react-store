@@ -15,13 +15,15 @@ const Header: FC<HeaderInterface> = ({ currentUser }) => {
       <div>
         <A href='/shop'> SHOP </A>
         <A href='/collections'> CONTACT </A>
-        { currentUser == 8
+        { currentUser
           ? <span onClick={()=> {
             auth.signOut()
             console.log('sign out')
           }}> Sign Out </span>
           : <A href='/signin'> Sign In </A>
         }
+
+          <span onClick={()=> { auth.signOut() }}> Sign Out </span>
       </div>
 
     </HeaderContainer>
