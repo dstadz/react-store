@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form"
 import { SignInUpContainer } from './styles'
 import CustomButton from '../CustomButton'
-import { auth, createUserProfileDocument, SignInWithGoogle } from '../../utils/firebase'
+import { auth, createUserProfileDocument, signInWithGoogle } from '../../utils/firebase'
 
 type FormData = {
   email: string;
@@ -94,7 +94,7 @@ const SignInUp = () => {
           <div className='Buttonbar'>
             <CustomButton type='submit'> Sign in </CustomButton>
             <CustomButton
-              onClick={SignInWithGoogle}
+              onClick={signInWithGoogle}
               isGoogleSignIn
             >
               Sign in with Google

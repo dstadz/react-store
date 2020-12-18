@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRoutes } from 'hookrouter';
 import Header from './Components/Header'
 import { auth, createUserProfileDocument } from './utils/firebase/index'
-import SignInUp from './Components/SignInUp'
+import SignInUpPage from './pages/SignInUpPage/'
 import './App.css';
 import routes from './Routes'
 
@@ -74,7 +74,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header currentUser={this.currentUser} />
-        <SignInUp/>
+        <SignInUpPage/>
 
         {/* {match} */}
       </div>
