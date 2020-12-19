@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import Header from './Components/Header/Header'
 import { auth, createUserProfileDocument } from './utils/firebase/firebase'
 import './App.css';

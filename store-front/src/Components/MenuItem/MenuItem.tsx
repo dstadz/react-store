@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-// import { Url } from 'url'
+import { withRouter } from 'react-router-dom';
 import { MenuItemContainer } from './styles'
 
 interface MenuItemInterface {
@@ -17,8 +17,8 @@ const MenuItem: FC<MenuItemInterface> = ({ props }) => {
     <MenuItemContainer
       size={size}
       imageUrl={imageUrl}
-      onClick={()=> console.log(title)}
-    >
+      // onClick={() => history.push(`${match.url}${linkUrl}`)}
+      >
       <div className='background-image'/>
       <div className='contentContainer'>
         <h2>{title.toUpperCase()}</h2>
@@ -28,4 +28,4 @@ const MenuItem: FC<MenuItemInterface> = ({ props }) => {
   )
 }
 
-export default MenuItem
+export default withRouter(MenuItem);
