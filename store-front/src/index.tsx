@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './AppCopy';
 import { BrowserRouter } from 'react-router-dom';
 
 import { RecoilRoot } from 'recoil';
@@ -10,11 +10,9 @@ import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
-	<BrowserRouter>
 		<RecoilRoot>
 			<App />
 		</RecoilRoot>
-  </BrowserRouter>
 	,document.getElementById('root')
 );
 

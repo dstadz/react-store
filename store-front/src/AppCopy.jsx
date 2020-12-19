@@ -1,19 +1,19 @@
 import React, { useEffect } from 'react';
 import { useRoutes } from 'hookrouter';
-import { useSetRecoilState, useRecoilValue } from 'recoil'
-import Header from './Components/Header/Header'
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
+import Header from './Components/Header/HeaderCopy'
 import { auth, createUserProfileDocument } from './utils/firebase/firebase'
 import './App.css';
 import { userState } from './utils/store'
 import routes from './Routes/routes'
 
 const App = () => {
-  // const [user, setUser] = useRecoilState(userState)
+  const [user, setUser] = useRecoilState(userState)
 
-  const setUser = useSetRecoilState(userState)
-  const user = useRecoilValue(userState)
+  // const setUser = useSetRecoilState(userState)
+  // const user = useRecoilValue(userState)
   let match = useRoutes(routes)
-
+  console.log(match)
   let unsubscribeFromAuth = null
 
   //componentDidMount
@@ -35,16 +35,10 @@ const App = () => {
   },[])
 
 
-
-  // // componentWillUnmount
-  // useEffect(() => {
-  //   return unsubscribeFromAuth()
-  // },[])
-
-  // console.log({user},unsubscribeFromAuth)
   return (
-    <div className="App"  onClick={()=> console.log(user, unsubscribeFromAuth)}>
-      <Header currentUser={user} />
+    <div className="App"
+    onClick={()=> console.log(user, unsubscribeFromAuth)}>
+      <Header/>
       {match}
     </div>
   );
