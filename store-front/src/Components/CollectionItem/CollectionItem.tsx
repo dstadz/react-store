@@ -1,30 +1,47 @@
 import React, { FC } from 'react'
-import { CollectionItemContainer } from './styles'
-import { Url } from 'url';
+import { useRecoilState } from 'recoil'
+import { cartState } from '../../utils/store'
+import {
+  CollectionItemContainer,
+  CollectionFooterContainer,
+  AddButton,
+  BackgroundImage,
+  NameContainer,
+  PriceContainer
+} from './styles.js';
 
-interface CollectionItemInterface {
-  props: {
+export interface CollectionItemInterface {
+  item: {
+    id: number,
     name: string,
     imageUrl: string,
     price: number
   }
 }
 
-const CollectionItem: FC<CollectionItemInterface> = ({props}) => {
-  const { name, price, imageUrl } = props
+const CollectionItem: FC<CollectionItemInterface> = ({item}) => {
+  const { name, price, imageUrl } = item
+  const [cart, setCart] = useRecoilState(cartState)
+
+  const addItem:FC<CollectionItemInterface> = item => {
+    console.log(cart)
+    console.log(item)
+    setCart([...cart, item])
+    console.log(cart)
+  }
 
   return (
-    <CollectionItemContainer imageUrl={imageUrl}>
-      <div className='background-image'/>
-      <div>
-        <span>{name}</span>
-        <span>{price}</span>
-      </div>
-      <button onClick={() => console.log('click')}>
+    <CollectionItemContainer>
+      <BackgroundImage className='image' imageUrl={imageUrl} />
+      <CollectionFooterContainer>
+        <NameContainer>{name}</NameContainer>
+        <PriceContainer>{price}</PriceContainer>
+      </CollectionFooterContainer>
+      <AddButton onClick={() => addItem(item)} inverted>
         Add to cart
-      </button>
+      </AddButton>
     </CollectionItemContainer>
-  )
-}
+  );
+};
 
 export default CollectionItem

@@ -1,14 +1,12 @@
 import React, { FC } from 'react'
 import CollectionItem from '../CollectionItem/CollectionItem'
 import { CollectionPreviewContainer } from './styles'
+import { CollectionItemInterface } from '../CollectionItem/CollectionItem'
 
 interface CollectionPreviewInterface {
   // props : {
     title:string,
-    items: {
-      id: number,
-      name:string
-    }[]
+    items: CollectionItemInterface[]
   // }
 }
 
@@ -19,8 +17,8 @@ const CollectionPreview: FC<CollectionPreviewInterface>= ({title, items}) => {
       <div className='preview'>
         {items
           .filter((items,idx) => idx < 4)
-          .map(({id, ...props}) => (
-            <CollectionItem key={id} props={props} />
+          .map(item => (
+            <CollectionItem key={item.id} item={item} />
           ))}
       </div>
     </CollectionPreviewContainer>
