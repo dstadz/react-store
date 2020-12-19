@@ -1,60 +1,40 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-
+import React, { useEffect } from 'react';
+import { useRoutes, useRedirect } from 'hookrouter';
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
+import Header from './Components/Header/Header'
+import { auth, createUserProfileDocument } from './utils/firebase/firebase'
 import './App.css';
+import { userState } from './utils/store'
+import routes from './Routes/routes'
 
-import HomePage from './pages/HomePage/HomePage';
-import ShopPage from './pages/ShopPage/ShopPage';
-import SignInAndSignUpPage from  './pages/SignInUpPage/SignInUpPage';
-import Header from './Components/Header/Header';
-import { auth, createUserProfileDocument } from './utils/firebase/firebase';
+const App = () => {
+  const [user, setUser] = useRecoilState(userState)
+  useRedirect('/signin','/')
+  const match = useRoutes(routes)
+  let unsubscribeFromAuth = null
 
-class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      currentUser: null
-    };
-  }
-
-  unsubscribeFromAuth = null;
-
-  componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+  //componentDidMount
+  useEffect(() => {
+    unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-
         userRef.onSnapshot(snapShot => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data()
-            }
+          setUser({
+            id: snapShot.id,
+            ...snapShot.data()
           });
         });
       }
-
-      this.setState({ currentUser: userAuth });
     });
-  }
+  },[])
 
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
 
-  render() {
-    return (
-      <div>
-        <Header currentUser={this.state.currentUser} />
-        <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route path='/signin' component={SignInAndSignUpPage} />
-        </Switch>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+    {/* onClick={()=> console.log(user, unsubscribeFromAuth)}> */}
+      <Header/>
+      {match}
+    </div>
+  );
 }
-
 export default App;

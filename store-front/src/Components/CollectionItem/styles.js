@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CustomButton from '../custom-button/custom-button.component';
+import CustomButton from '../CustomButton/CustomButton';
 
 export const CollectionItemContainer = styled.div`
   width: 22vw;
@@ -33,6 +33,16 @@ export const CollectionItemContainer = styled.div`
       }
     }
   }
+
+
+  .background-image{
+    width: 100%;
+    height: 95%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+    background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+}
 `;
 
 export const AddButton = styled(CustomButton)`
@@ -52,16 +62,6 @@ export const AddButton = styled(CustomButton)`
 
 AddButton.displayName = 'AddButton';
 
-export const BackgroundImage = styled.div`
-  width: 100%;
-  height: 95%;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 5px;
-  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
-`;
-
-BackgroundImage.displayName = 'BackgroundImage';
 
 export const CollectionFooterContainer = styled.div`
   width: 100%;

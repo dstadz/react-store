@@ -1,4 +1,6 @@
 import React, { FC } from 'react'
+import CollectionItem from '../CollectionItem/CollectionItem'
+import { CollectionPreviewContainer } from './styles'
 
 interface CollectionPreviewInterface {
   // props : {
@@ -12,16 +14,16 @@ interface CollectionPreviewInterface {
 
 const CollectionPreview: FC<CollectionPreviewInterface>= ({title, items}) => {
   return (
-    <div>
+    <CollectionPreviewContainer>
       <h2> {title.toUpperCase()} </h2>
-      <div>
+      <div className='preview'>
         {items
-          .filter((item,idx) => idx < 4)
-          .map(item => (
-            <div key={item.id}> {item.name} </div>
+          .filter((items,idx) => idx < 4)
+          .map(({id, ...props}) => (
+            <CollectionItem key={id} props={props} />
           ))}
       </div>
-    </div>
+    </CollectionPreviewContainer>
   )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import  SHOP_DATA from '../../assets/crwn-clothing_sct6_local_images/shop.data'
+import  SHOP_DATA from '../../assets/shop.data'
 import CollectionPreview from '../../Components/CollectionPreview/CollectionPreview'
 
 

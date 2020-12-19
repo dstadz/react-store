@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-// interface MenuProps {
-//   size?: string,
-//   imageUrl?: string
-// }
+interface MenuProps {
+  size?: string,
+  imageUrl?: string
+}
 
+// export const MenuItemContainer= styled.div<MenuProps>`
 export const MenuItemContainer= styled.div`
 	height: ${({ size }) => (size ? '380px' : '240px')};
 	min-width: 30%;

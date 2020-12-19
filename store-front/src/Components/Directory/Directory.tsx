@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import MenuItem from '../MenuItem/MenuItem'
-import SECTIONS_DATA from '../../assets/crwn-clothing_sct6_local_images/sections.data.js'
+import SECTIONS_DATA from '../../assets/sections.data.js'
 import { DirectoryMenuContainer } from './styles'
 
 const Directory = () => {

@@ -3,15 +3,19 @@ import { CollectionItemContainer } from './styles'
 import { Url } from 'url';
 
 interface CollectionItemInterface {
-  name: string,
-  imageUrl: string,
-  price: number
+  props: {
+    name: string,
+    imageUrl: string,
+    price: number
+  }
 }
 
-const CollectionItem: FC<CollectionItemInterface> = ({name, imageUrl, price}) => {
+const CollectionItem: FC<CollectionItemInterface> = ({props}) => {
+  const { name, price, imageUrl } = props
+
   return (
-    <CollectionItemContainer>
-      <div data-imageUrl={imageUrl} />
+    <CollectionItemContainer imageUrl={imageUrl}>
+      <div className='background-image'/>
       <div>
         <span>{name}</span>
         <span>{price}</span>
