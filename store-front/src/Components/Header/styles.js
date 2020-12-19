@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { A } from 'hookrouter';
 
 export const HeaderContainer = styled.div`
   height: 70px;
@@ -43,9 +42,9 @@ export const HeaderContainer = styled.div`
   }
 `;
 
-export const OptionLink = styled(A)`
-  padding: 10px 15px;
-  cursor: pointer;
-`;
+// export const OptionLink = styled(A)`
+//   padding: 10px 15px;
+//   cursor: pointer;
+// `;
 
-OptionLink.displayName = 'OptionLink';
+// OptionLink.displayName = 'OptionLink';

@@ -10,9 +10,11 @@ import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
+	<BrowserRouter>
 		<RecoilRoot>
 			<App />
 		</RecoilRoot>
+	</BrowserRouter>
 	,document.getElementById('root')
 );
 

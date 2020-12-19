@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 // import { Url } from 'url'
 import { MenuItemContainer } from './styles'
-import { A } from 'hookrouter'
 
 interface MenuItemInterface {
   props: {
@@ -15,7 +14,6 @@ const MenuItem: FC<MenuItemInterface> = ({ props }) => {
   const { title, imageUrl, size } = props
   return (
     // <MenuItemContainer data-size={size}  data-imageUrl={imageUrl}>
-    <A href='/shop/' style={{  all: 'unset'}}>
     <MenuItemContainer
       size={size}
       imageUrl={imageUrl}
@@ -27,7 +25,6 @@ const MenuItem: FC<MenuItemInterface> = ({ props }) => {
         <span> SHOP NOW </span>
       </div>
     </MenuItemContainer>
-    </A>
   )
 }
 

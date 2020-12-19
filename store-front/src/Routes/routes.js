@@ -1,15 +1,34 @@
 import React  from "react";
-import CollectionPreview from "../Components/CollectionPreview/CollectionPreview";
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { useRecoilValue } from 'recoil'
+import { userState } from '../utils/store'
 
-import Home from '../pages/HomePage/HomePage'
+import HomePage from '../pages/HomePage/HomePage'
 import ShopPage from '../pages/ShopPage/ShopPage'
 import SignInUpPage from '../pages/SignInUpPage/SignInUpPage'
 
-const routes = {
-  '/': () => <Home />,
-  '/shop': () => <ShopPage />,
-  '/signin': () => <SignInUpPage/>,
-  '/shop/:id': (id) => <CollectionPreview id={id} />,
-  // '/checkout': () => <Checkout/>,
+// const routes = {
+//   '/': () => <Home />,
+//   '/shop': () => <ShopPage />,
+//   '/signin': () => <SignInUpPage/>,
+//   // '/checkout': () => <Checkout/>,
+// }
+
+const Routes = () => {
+  const user = useRecoilValue(userState)
+  return (
+    <Switch>
+    <Route exact path='/' component={HomePage} />
+    <Route path='/shop' component={ShopPage} />
+    {/* <Route exact path='/checkout' component={CheckoutPage} /> */}
+    <Route
+      exact
+      path='/signin'
+      render={() =>
+        user ? <Redirect to='/' /> : <SignInUpPage />
+      }
+    />
+    </Switch>
+  )
 }
-export default routes
+export default Routes

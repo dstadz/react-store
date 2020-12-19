@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import { A } from 'hookrouter'
-import { useRecoilValue, useRecoilState } from 'recoil'
+import { Link } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
 import { userState, isDropDownVisible } from '../../utils/store'
 import { auth } from '../../utils/firebase/firebase'
 import CartIcon from '../CartIcon/CartIcon'
@@ -18,13 +18,13 @@ const Header: FC<HeaderInterface> = () => {
 
   return (
     <HeaderContainer>
-      <A className='Logo' href='/'> <div> LOGO </div> </A>
+      <Link className='Logo' to='/'> <div> LOGO </div> </Link>
       <div className='links'>
-        <A href='/shop'> SHOP </A>
-        <A href='/collections'> CONTACT </A>
+        <Link to='/shop'> SHOP </Link>
+        <Link to='/collections'> CONTACT </Link>
         { user
           ? <span onClick={()=> auth.signOut()}> Sign Out </span>
-          : <A href='/signin'> Sign In </A>
+          : <Link to='/signin'> Sign In </Link>
         }
         <CartIcon/>
       </div>
