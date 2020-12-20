@@ -1,14 +1,9 @@
 import React, { FC } from 'react'
 import CollectionItem from '../CollectionItem/CollectionItem'
 import { CollectionPreviewContainer } from './styles'
-import { CollectionItemInterface } from '../CollectionItem/CollectionItem'
+import CollectionPreviewInterface from '../../utils/interfaces/CollectionPreview'
 
-interface CollectionPreviewInterface {
-  // props : {
-    title:string,
-    items: CollectionItemInterface[]
-  // }
-}
+
 
 const CollectionPreview: FC<CollectionPreviewInterface>= ({title, items}) => {
   return (
