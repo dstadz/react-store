@@ -4,7 +4,7 @@ import Header from './Components/Header/Header'
 import { auth, createUserProfileDocument } from './utils/firebase/firebase'
 import './App.css';
 import { userState } from './utils/store'
-import Routes from './Routes/routes'
+import Routes from './routes/routes'
 
 const App = () => {
   const setUser = useSetRecoilState(userState)

@@ -1,5 +1,5 @@
 import { atom } from 'recoil'
-import { CartItemInterface } from '../../Components/CollectionItem/CollectionItem'
+import CartItemInterface from '../interfaces/CartItem'
 
 
 export const userState = atom({
@@ -12,10 +12,6 @@ export const userState = atom({
     default: false
 })
 
-
-// interface cartListInterFace {
-//   [index:number]: CollectionItemInterface
-// }
 const initCart = (): CartItemInterface[] => []
 export const cartListState = atom({
   key: 'cartListState',
