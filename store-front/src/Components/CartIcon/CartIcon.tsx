@@ -4,10 +4,6 @@ import { CartIconContainer } from './styles'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { isDropDownVisible, cartCountState } from '../../utils/store'
 
-
-
-
-
 const CartIcon = () => {
   const [isVisible, setIsVisible] = useRecoilState(isDropDownVisible)
   const cartAmount = useRecoilValue(cartCountState)
