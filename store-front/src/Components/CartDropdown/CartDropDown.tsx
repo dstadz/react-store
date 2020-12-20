@@ -1,22 +1,39 @@
 import React from 'react'
-import CustomButton from '../CustomButton/CustomButton'
-import { CartDropDownContainer } from './styles'
+import { useHistory } from "react-router-dom";
+import { isDropDownVisible } from '../../utils/store'
+
 import CartItem from '../CartItem/Cartitem'
 import { cartListState } from '../../utils/store'
-import { useRecoilValue } from 'recoil'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import {
+  CartDropdownContainer,
+  CartDropdownButton,
+  EmptyMessageContainer,
+  CartItemsContainer
+} from './styles'
 
 
 const CartDropDown = () => {
   const cart = useRecoilValue(cartListState)
+  const setIsVisible = useSetRecoilState(isDropDownVisible)
+
+  const history = useHistory();
+
   return (
-    <CartDropDownContainer>
-      <div className='cart-items'>
-        {cart.map(item => (
-          <CartItem item={item} />
-        ))}
-      </div>
-      <CustomButton> GO TO CHECKOUT </CustomButton>
-    </CartDropDownContainer>
+    <CartDropdownContainer>
+      <CartItemsContainer>
+        {cart.length
+          ? cart.map(item => ( <CartItem key={item.id} {...item} /> ))
+          : <EmptyMessageContainer> Your cart is empty </EmptyMessageContainer>
+        }
+      </CartItemsContainer>
+      <CartDropdownButton onClick={() => {
+        history.push('/checkout')
+        setIsVisible(false)
+      }}>
+        GO TO CHECKOUT
+      </CartDropdownButton>
+    </CartDropdownContainer>
   )
 }
 

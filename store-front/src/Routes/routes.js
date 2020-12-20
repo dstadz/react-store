@@ -6,28 +6,24 @@ import { userState } from '../utils/store'
 import HomePage from '../pages/HomePage/HomePage'
 import ShopPage from '../pages/ShopPage/ShopPage'
 import SignInUpPage from '../pages/SignInUpPage/SignInUpPage'
+import CheckoutPage from '../pages/CheckoutPage/CheckoutPage'
 
-// const routes = {
-//   '/': () => <Home />,
-//   '/shop': () => <ShopPage />,
-//   '/signin': () => <SignInUpPage/>,
-//   // '/checkout': () => <Checkout/>,
-// }
+
 
 const Routes = () => {
   const user = useRecoilValue(userState)
   return (
     <Switch>
-    <Route exact path='/' component={HomePage} />
-    <Route path='/shop' component={ShopPage} />
-    {/* <Route exact path='/checkout' component={CheckoutPage} /> */}
-    <Route
-      exact
-      path='/signin'
-      render={() =>
-        user ? <Redirect to='/' /> : <SignInUpPage />
-      }
-    />
+      <Route exact path='/' component={HomePage} />
+      <Route path='/shop' component={ShopPage} />
+      <Route exact path='/checkout' component={CheckoutPage} />
+      <Route
+        exact
+        path='/signin'
+        render={() =>
+          user ? <Redirect to='/' /> : <SignInUpPage />
+        }
+      />
     </Switch>
   )
 }

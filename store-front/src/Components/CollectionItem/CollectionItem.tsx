@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useRecoilState } from 'recoil'
 import { cartListState } from '../../utils/store'
 import addItemToCart from '../../utils/functions/addItemToCart'
-import CollectionItemInterface from '../../utils/interfaces/CollectionItem'
+import CartItemInterface from '../../utils/interfaces/CartItem'
 import {
   CollectionItemContainer,
   CollectionFooterContainer,
@@ -15,15 +15,14 @@ import {
 
 
 
-const CollectionItem: FC<CollectionItemInterface> = ({ item }) => {
-  const { name, price, imageUrl } = item
+const CollectionItem: FC<CartItemInterface> = ({ id, name, price, imageUrl }) => {
+  const item = { id, name, price, imageUrl }
   const [cart, setCart] = useRecoilState(cartListState)
-
+  // console.log('collectionItem',item)
   return (
     <CollectionItemContainer>
       <BackgroundImage className='image' imageUrl={imageUrl} />
       <CollectionFooterContainer>
-      <h1>{item.quantity}</h1>
         <NameContainer>{name}</NameContainer>
         <PriceContainer>{price}</PriceContainer>
       </CollectionFooterContainer>
