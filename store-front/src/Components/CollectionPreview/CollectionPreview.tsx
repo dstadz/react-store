@@ -5,15 +5,15 @@ import CollectionPreviewInterface from '../../utils/interfaces/CollectionPreview
 
 
 
-const CollectionPreview: FC<CollectionPreviewInterface>= ({title, items}) => {
+const CollectionPreview: FC<CollectionPreviewInterface> = ({title, items}) => {
   return (
     <CollectionPreviewContainer>
       <h2> {title.toUpperCase()} </h2>
       <div className='preview'>
         {items
-          .filter((items,idx) => idx < 4)
+          .filter((_,idx) => idx < 4)
           .map(item => (
-            <CollectionItem key={item.id} item={item} />
+            <CollectionItem key={item.id} {...item} />
           ))}
       </div>
     </CollectionPreviewContainer>

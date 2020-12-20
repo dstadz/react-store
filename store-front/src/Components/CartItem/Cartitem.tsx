@@ -6,8 +6,8 @@ import {
   ItemDetailsContainer
 } from './styles'
 
-const Cartitem: FC<CartItemInterface> = ({ item }) => {
-  const { name, price, imageUrl, quantity } = item
+const Cartitem: FC<CartItemInterface> = ({ name, price, imageUrl, quantity }) => {
+  // const { name, price, imageUrl, quantity } = item
 
   return (
     <CartItemContainer>

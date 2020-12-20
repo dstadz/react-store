@@ -1,6 +1,9 @@
-import CollectionItemInterface from './CollectionItem'
+import CartItemInterface from './CartItem'
 
 export default interface CollectionPreviewInterface {
-  title:string,
-  items: CollectionItemInterface[]
+  id:number,
+  title: string,
+  routeName: string,
+  key: number,
+  items: CartItemInterface[]
 }

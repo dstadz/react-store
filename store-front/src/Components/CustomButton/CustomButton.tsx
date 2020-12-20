@@ -2,12 +2,7 @@ import React, { FC } from 'react';
 
 import { CustomButtonContainer } from './styles';
 
-
-interface ButtonInterface {
-  children:string,
-}
-
-const CustomButton: FC<ButtonInterface> = ({ children, ...props }) => (
+const CustomButton: FC<{ children:string }> = ({ children, ...props }) => (
   <CustomButtonContainer {...props}>{children}</CustomButtonContainer>
 );
 
