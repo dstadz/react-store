@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 import Header from './Components/Header/Header'
 import { auth, createUserProfileDocument } from './utils/firebase/firebase'
 import './App.css';
@@ -7,7 +7,7 @@ import { userState } from './utils/store'
 import Routes from './Routes/routes'
 
 const App = () => {
-  const [user, setUser] = useRecoilState(userState)
+  const setUser = useSetRecoilState(userState)
   let unsubscribeFromAuth = null
 
   //componentDidMount
