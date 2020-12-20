@@ -3,3 +3,7 @@ export {
   isDropDownVisible,
   cartListState
 } from './atoms'
+
+export {
+  cartCountState
+} from './selectors'
