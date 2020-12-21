@@ -7,7 +7,6 @@ import {
 } from './styles'
 
 const Cartitem: FC<CartItemInterface> = ({ name, price, imageUrl, quantity }) => {
-  // const { name, price, imageUrl, quantity } = item
 
   return (
     <CartItemContainer>

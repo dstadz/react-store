@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-
 import { CustomButtonContainer } from './styles';
 
 const CustomButton: FC<{ children:string }> = ({ children, ...props }) => (

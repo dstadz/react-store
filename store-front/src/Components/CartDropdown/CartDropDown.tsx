@@ -1,9 +1,7 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
-import { isDropDownVisible } from '../../utils/store'
-
 import CartItem from '../CartItem/Cartitem'
-import { cartListState } from '../../utils/store'
+import { cartListState, isDropDownVisible } from '../../utils/store'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import {
   CartDropdownContainer,
@@ -12,11 +10,9 @@ import {
   CartItemsContainer
 } from './styles'
 
-
 const CartDropDown = () => {
   const cart = useRecoilValue(cartListState)
   const setIsVisible = useSetRecoilState(isDropDownVisible)
-
   const history = useHistory();
 
   return (

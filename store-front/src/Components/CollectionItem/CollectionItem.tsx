@@ -12,13 +12,10 @@ import {
   PriceContainer
 } from './styles.js';
 
-
-
-
 const CollectionItem: FC<CartItemInterface> = ({ id, name, price, imageUrl }) => {
   const item = { id, name, price, imageUrl }
   const [cart, setCart] = useRecoilState(cartListState)
-  // console.log('collectionItem',item)
+
   return (
     <CollectionItemContainer>
       <BackgroundImage className='image' imageUrl={imageUrl} />

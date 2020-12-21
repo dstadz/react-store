@@ -6,10 +6,11 @@ import { DirectoryMenuContainer } from './styles'
 const Directory = () => {
   const [sections, setSections] = useState(SECTIONS_DATA)
   if (!sections) setSections(SECTIONS_DATA)
+
   return (
     <DirectoryMenuContainer>
       {sections.map(({id, ...props}) => (
-        <MenuItem key={id} props={props} />
+        <MenuItem key={id} {...props} />
       ))}
     </DirectoryMenuContainer>
   )

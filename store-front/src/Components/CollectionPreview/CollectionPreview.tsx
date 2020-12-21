@@ -3,9 +3,8 @@ import CollectionItem from '../CollectionItem/CollectionItem'
 import { CollectionPreviewContainer } from './styles'
 import CollectionPreviewInterface from '../../utils/interfaces/CollectionPreview'
 
-
-
 const CollectionPreview: FC<CollectionPreviewInterface> = ({title, items}) => {
+
   return (
     <CollectionPreviewContainer>
       <h2> {title.toUpperCase()} </h2>
