@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
-import { cartListState } from '../../utils/store'
+import { cartListState, totalPriceState } from '../../utils/store'
 import CheckoutItem from '../../Components/CheckoutItem/CheckoutItem'
 import {
   CheckoutPageContainer,
@@ -14,6 +14,7 @@ import {
 
 const CheckoutPage = () => {
   const cartList = useRecoilValue(cartListState)
+  const total = useRecoilValue(totalPriceState)
   return (
     <CheckoutPageContainer>
       <CheckoutHeaderContainer>
@@ -36,7 +37,7 @@ const CheckoutPage = () => {
       {cartList.map(item => (
         <CheckoutItem key={item.id} {...item} />
       ))}
-      <TotalContainer>TOTAL: ${'total'}</TotalContainer>
+      <TotalContainer>TOTAL: ${total}</TotalContainer>
       <WarningContainer>
         *Please use the following test credit card for payments*
         <br />

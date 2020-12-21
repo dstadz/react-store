@@ -11,5 +11,18 @@ export const cartCountState = selector({
     });
 
     return count;
-  },
+  }
 });
+
+export const totalPriceState = selector({
+  key: 'totalPriceState',
+  get: ({get}) => {
+    const cart = get(cartListState);
+    let total = 0
+    cart.forEach(item => {
+      total += (item.price * item.quantity)
+    });
+
+    return total;
+  }
+})

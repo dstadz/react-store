@@ -5,5 +5,6 @@ export {
 } from './atoms'
 
 export {
-  cartCountState
+  cartCountState,
+  totalPriceState
 } from './selectors'
