@@ -6,16 +6,11 @@ const removeItemFromCart = (
   cart:CartItemInterface[],
   setCart:{([]):void},
   ) => {
-  const newList:CartItemInterface[] = []
   const cartItemIndex = cart.findIndex(cartItem => cartItem.id === id);
   const subbedItem = Object.assign({},{...cart[cartItemIndex]})
-  if (subbedItem.quantity == 1) {
-    for (let idx in cart) {
-      if (idx !== cartItemIndex.toString()) newList.push(cart[idx])
-    }
-    setCart(newList)
-  }
+  if (subbedItem.quantity == 1) clearItemFromCart(id,cart,setCart)
   else {
+    const newList:CartItemInterface[] = []
     subbedItem.quantity--
     for (let idx in cart) {
       if (idx !== cartItemIndex.toString()) newList.push(cart[idx])
