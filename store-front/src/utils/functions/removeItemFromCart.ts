@@ -8,7 +8,7 @@ const removeItemFromCart = (
   ) => {
   const cartItemIndex = cart.findIndex(cartItem => cartItem.id === id);
   const subbedItem = Object.assign({},{...cart[cartItemIndex]})
-  if (subbedItem.quantity == 1) clearItemFromCart(id,cart,setCart)
+  if (subbedItem.quantity === 1) clearItemFromCart(id,cart,setCart)
   else {
     const newList:CartItemInterface[] = []
     subbedItem.quantity--
@@ -18,6 +18,7 @@ const removeItemFromCart = (
     }
     setCart(newList)
   }
+  window.sessionStorage.setItem('cart', cart.toString())
 }
 
 export default removeItemFromCart

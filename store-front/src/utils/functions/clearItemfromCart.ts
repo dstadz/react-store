@@ -11,6 +11,8 @@ const clearItemFromCart = (
     if (idx !== cartItemIndex.toString()) newList.push(cart[idx])
   }
   setCart(newList)
+  window.sessionStorage.setItem('cart', cart.toString())
+
 }
 
 export default clearItemFromCart

@@ -19,6 +19,7 @@ const addItemToCart = (
     const newestCartItem = Object.assign({quantity:1}, newItem);
     setCart([...cart, newestCartItem])
   }
+  window.sessionStorage.setItem('cart', cart.toString())
 }
 
 export default addItemToCart

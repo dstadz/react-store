@@ -11,8 +11,8 @@ export const userState = atom({
     key: 'isDropDownVisible',
     default: false
 })
-
-const initCart = (): CartItemInterface[] => []
+const prevSession: CartItemInterface[] = JSON.parse(window.sessionStorage.getItem('cart'))
+const initCart = (): CartItemInterface[] => prevSession || []
 export const cartListState = atom({
   key: 'cartListState',
   default: initCart()
