@@ -1,5 +1,5 @@
 import React from 'react'
-import {ReactComponent as Icon} from '../../assets/images/shopping-bag.svg'
+import {ReactComponent as Icon} from '../../assets/images/bag.svg'
 import { CartIconContainer } from './styles'
 import { useSetRecoilState, useRecoilValue } from 'recoil'
 import { isDropDownVisible, cartCountState } from '../../utils/store'
