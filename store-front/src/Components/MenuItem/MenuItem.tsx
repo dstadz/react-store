@@ -1,14 +1,24 @@
 import React, { FC } from 'react'
-import { useHistory } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import { MenuItemContainer } from './styles'
 
 interface MenuItemInterface {
   title:string,
   imageUrl: string,
-  size?:string
+  linkUrl:string,
+  size?:string,
+  match: string,
+  history: string,
 }
 
-const MenuItem: FC<MenuItemInterface> = ({ title, imageUrl, size }) => {
+const MenuItem: FC<MenuItemInterface> = ({
+  title,
+  imageUrl,
+  linkUrl,
+  size,
+  match,
+  // history
+}) => {
   // const { title, imageUrl, size } = props
   const history = useHistory();
 
@@ -16,7 +26,8 @@ const MenuItem: FC<MenuItemInterface> = ({ title, imageUrl, size }) => {
     <MenuItemContainer
       size={size}
       imageUrl={imageUrl}
-      onClick={() => history.push(`${match.url}${linkUrl}`)}
+      onClick={() => history.push(`${linkUrl}`)}
+      // onClick={() => history.push(`${match.url}${linkUrl}`)}
       >
       <div className='background-image'/>
       <div className='contentContainer'>
@@ -27,4 +38,4 @@ const MenuItem: FC<MenuItemInterface> = ({ title, imageUrl, size }) => {
   )
 }
 
-export default MenuItem;
+export default withRouter(MenuItem);
