@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import CollectionItem from '../../Components/CollectionItem/CollectionItem'
+import React, { useState, useEffect } from 'react'
+import { useRecoilValue } from 'recoil'
 import { withRouter } from "react-router-dom";
-import  SHOP_DATA from '../../assets/shop.data'
+import { collectionState } from '../../utils/store';
+import CollectionItem from '../../Components/CollectionItem/CollectionItem'
 
 import {
   CollectionPageContainer,
@@ -12,10 +13,19 @@ import {
 
 const CollectionPage = ( match ) => {
   const route = match.match.params.collectionId
-  // console.log('collectionId', collectionId)
-  const [collection,setCollection] = useState(SHOP_DATA.find(section => section.routeName == route))
-  const { title, items } = collection
-  console.log(collection)
+  const collections = useRecoilValue(collectionState)
+  const [collection,setCollection] = useState([])
+
+  const getCollection = async() => {
+    await setCollection(x)
+    
+  }
+  
+  
+  useEffect(() => { getCollection() },[])
+  
+  const x = collections.find(col => route === col.routeName)
+  const { title, items } = x
   return (
     <CollectionPageContainer>
       <CollectionTitle>{title}</CollectionTitle>

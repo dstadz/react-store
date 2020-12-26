@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
-import  SHOP_DATA from '../../assets/shop.data'
-
-import { CollectionsOverviewContainer } from './collections-overview.styles';
+import React from 'react'
+import {useRecoilValue } from 'recoil'
+import { collectionState } from '../../utils/store'
 import CollectionPreview from '../CollectionPreview/CollectionPreview'
+import { CollectionsOverviewContainer } from './styles';
 
 const CollectionOverview = () => {
-  const [collections, setCollections] = useState(SHOP_DATA)
-  if(!collections) setCollections(SHOP_DATA)
+  const collections = useRecoilValue(collectionState)
 
   return (
     <CollectionsOverviewContainer>

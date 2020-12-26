@@ -17,3 +17,9 @@ export const cartListState = atom({
   key: 'cartListState',
   default: initCart()
 })
+
+
+export const collectionState = atom({
+  key: 'collectionState',
+  default: []
+})

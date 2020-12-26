@@ -1,7 +1,8 @@
 export {
   userState,
   isDropDownVisible,
-  cartListState
+  cartListState,
+  collectionState
 } from './atoms'
 
 export {
