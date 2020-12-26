@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 
+import FormInput from '../FormInput/FormInput'
+import CustomButton from '../CustomButton/CustomButton';
+
 import { auth, signInWithGoogle } from '../../utils/firebase/firebase'
 
+import {
+  SignInContainer,
+  SignInTitle,
+  ButtonsBarContainer
+} from './styles'
 
 const SignIn = () => {
   const [user,setUser] = useState({
@@ -20,12 +28,12 @@ const SignIn = () => {
   const handleChange = e => setUser({ [e.target.name]: e.target.value });
 
   return (
-    <div className='sign-in'>
-      <h2>I already have an account</h2>
+    <SignInContainer>
+      <SignInTitle>I already have an account</SignInTitle>
       <span>Sign in with your email and password</span>
 
       <form onSubmit={handleSubmit}>
-      <input
+      <FormInput
           type='email'
           name='email'
           value={user.email}
@@ -33,7 +41,7 @@ const SignIn = () => {
           label='Email'
           required
         />
-        <input
+        <FormInput
           type='password'
           name='password'
           value={user.password}
@@ -41,14 +49,14 @@ const SignIn = () => {
           label='Password'
           required
         />
-        <div className='buttons'>
-          <button type='submit'> Sign in </button>
-          <button onClick={signInWithGoogle} isgooglesignin>
+        <ButtonsBarContainer>
+          <CustomButton type='submit'> Sign in </CustomButton>
+          <CustomButton onClick={signInWithGoogle} isgooglesignin>
             Sign in with Google
-          </button>
-        </div>
+          </CustomButton>
+        </ButtonsBarContainer>
       </form>
-    </div>
+    </SignInContainer>
   );
 }
 

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
+
+import FormInput from '../FormInput/FormInput'
+import CustomButton from '../CustomButton/CustomButton';
+
 import { auth, createUserProfileDocument } from '../../utils/firebase/firebase';
+import { SignUpContainer, SignUpTitle } from './styles';
 
 
 const SignUp = () => {
@@ -41,11 +46,11 @@ const SignUp = () => {
   const handleChange = e => setUser({ [e.target.name]: e.target.value });
 
   return (
-    <div className='sign-up'>
-      <h2 className='title'>I do not have a account</h2>
+    <SignUpContainer>
+      <SignUpTitle>I do not have a account</SignUpTitle>
       <span>Sign up with your email and password</span>
       <form className='sign-up-form' onSubmit={handleSubmit}>
-        <input
+        <FormInput
           type='text'
           name='displayName'
           value={user.displayName}
@@ -53,7 +58,7 @@ const SignUp = () => {
           label='Display Name'
           required
         />
-        <input
+        <FormInput
           type='email'
           name='email'
           value={user.email}
@@ -61,7 +66,7 @@ const SignUp = () => {
           label='Email'
           required
         />
-        <input
+        <FormInput
           type='password'
           name='password'
           value={user.password}
@@ -69,7 +74,7 @@ const SignUp = () => {
           label='Password'
           required
         />
-        <input
+        <FormInput
           type='password'
           name='confirmPassword'
           value={user.confirmPassword}
@@ -77,9 +82,9 @@ const SignUp = () => {
           label='Confirm Password'
           required
         />
-        <button type='submit'>SIGN UP</button>
+        <CustomButton type='submit'>SIGN UP</CustomButton>
       </form>
-    </div>
+    </SignUpContainer>
   );
 }
 
