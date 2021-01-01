@@ -4,9 +4,8 @@ import { collectionState } from '../../utils/store'
 import CollectionPreview from '../CollectionPreview/CollectionPreview'
 import { CollectionsOverviewContainer } from './styles';
 
-const CollectionOverview = () => {
-  const collections = useRecoilValue(collectionState)
-
+const CollectionOverview = ({ collections }:{}[]) => {
+  // const collections = useRecoilValue(collectionState)
   return (
     <CollectionsOverviewContainer>
       {collections.map(collection => (
