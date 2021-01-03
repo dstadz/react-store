@@ -5,8 +5,8 @@ import { useSetRecoilState } from 'recoil'
 import { collectionState } from '../../utils/store';
 import { firestore, convertCollectionsSnapshotToMap } from '../../utils/firebase/firebase'
 
-import { default as CollectionOverview } from '../../Components/CollectionOverview/CollectionOverviewContainer'
-import { default as CollectionPage } from '../CollectionPage/CollectionContainer'
+import CollectionOverview from '../../Components/CollectionOverview/CollectionOverviewContainer'
+import CollectionPage from '../CollectionPage/CollectionContainer'
 import WithSpinner from '../../Components/Spinner/WithSpinner'
 
 

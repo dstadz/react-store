@@ -12,14 +12,14 @@ import {
 
 
 const CollectionPage = ( match ) => {
-  console.log(match)
   const route = match.match.params.collectionId
   // const collections = useRecoilValue(collectionState)
   // const [collection,setCollection] = useState([])
 
-  const getCollection = async() => {
-    await setCollection(x)
-  }
+  // const getCollection = async() => {
+    //   await setCollection(x)
+    // }
+
 
 
   // useEffect(() => { getCollection() },[])

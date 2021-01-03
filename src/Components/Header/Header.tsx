@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil'
 import { userState, isDropDownVisible } from '../../utils/store'
 import { auth } from '../../utils/firebase/firebase'
 import CartIcon from '../CartIcon/CartIcon'
-import CartDropDown from '../CartDropdown/CartDropDown'
+import CartDropDown from '../CartDropDown/CartDropDown'
 import { HeaderContainer } from './styles'
 
 
