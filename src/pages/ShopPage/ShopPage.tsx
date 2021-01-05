@@ -8,10 +8,10 @@ import { firestore, convertCollectionsSnapshotToMap } from '../../utils/firebase
 import CollectionOverviewContainer from '../../Components/CollectionOverview/CollectionOverviewContainer'
 // import CollectionOverview from '../../Components/CollectionOverview/CollectionOverviewContainer'
 import CollectionPage from '../CollectionPage/CollectionContainer'
-import WithSpinner from '../../Components/Spinner/WithSpinner'
+// import WithSpinner from '../../Components/Spinner/WithSpinner'
 
 
-const CollectionsPageWithSpinner = WithSpinner(CollectionPage)
+// const CollectionsPageWithSpinner = WithSpinner(CollectionPage)
 
 const Shop = ({ match, props }) => {
   const setCollections = useSetRecoilState(collectionState)
