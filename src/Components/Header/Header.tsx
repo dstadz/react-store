@@ -5,6 +5,7 @@ import { userState, isDropDownVisible } from '../../utils/store'
 import { auth } from '../../utils/firebase/firebase'
 import CartIcon from '../CartIcon/CartIcon'
 import CartDropDown from '../CartDropDown/CartDropDown'
+// import CartDropDown from '../CartDropDown/CartDropDown'
 import { HeaderContainer } from './styles'
 
 
