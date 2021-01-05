@@ -15,7 +15,7 @@ export const CartDropdownContainer = styled.div`
   z-index: 5;
 `;
 
-export const CartDropdownButton = styled(CustomButton)`
+export const CartDropdownButton = styled(CustomButton)<{onClick:()=>void}>`
   margin-top: auto;
 `;
 

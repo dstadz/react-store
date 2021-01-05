@@ -6,7 +6,7 @@ interface MenuProps {
 }
 
 // export const MenuItemContainer= styled.div<MenuProps>`
-export const MenuItemContainer= styled.div`
+export const MenuItemContainer= styled.div<{size?:string, imageUrl:string}>`
 	height: ${({ size }) => (size ? '380px' : '240px')};
 	min-width: 30%;
 	overflow: hidden;

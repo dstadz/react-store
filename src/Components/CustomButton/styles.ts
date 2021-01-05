@@ -34,7 +34,11 @@ const googleSignInStyles = css`
   }
 `;
 
-const getButtonStyles = props => {
+interface ButtonProps {
+  inverted?:boolean,
+  isgooglesignin?: boolean
+}
+const getButtonStyles = (props:ButtonProps) => {
   if (props.isgooglesignin) {
     return googleSignInStyles;
   }

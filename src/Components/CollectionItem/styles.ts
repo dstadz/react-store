@@ -35,7 +35,7 @@ export const CollectionItemContainer = styled.div`
   }
 `;
 
-export const AddButton = styled(CustomButton)`
+export const AddButton = styled(CustomButton)<{onClick:()=>void}>`
   width: 80%;
   opacity: 0.7;
   position: absolute;
@@ -52,7 +52,7 @@ export const AddButton = styled(CustomButton)`
 
 AddButton.displayName = 'AddButton';
 
-export const BackgroundImage = styled.div`
+export const BackgroundImage = styled.div<{imageUrl:string}>`
   width: 100%;
   height: 95%;
   background-size: cover;
