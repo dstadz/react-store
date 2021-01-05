@@ -10,7 +10,7 @@ import {
   BackgroundImage,
   NameContainer,
   PriceContainer
-} from './styles.js';
+} from './styles';
 
 const CollectionItem: FC<CartItemInterface> = ({ id, name, price, imageUrl }) => {
   const item = { id, name, price, imageUrl }
@@ -23,7 +23,7 @@ const CollectionItem: FC<CartItemInterface> = ({ id, name, price, imageUrl }) =>
         <NameContainer>{name}</NameContainer>
         <PriceContainer>{price}</PriceContainer>
       </CollectionFooterContainer>
-      <AddButton onClick={() => addItemToCart(item, cart, setCart)} inverted>
+      <AddButton onClick={() => addItemToCart(item, cart, setCart)} >
         Add to cart
       </AddButton>
     </CollectionItemContainer>

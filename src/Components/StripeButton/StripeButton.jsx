@@ -9,7 +9,7 @@ import {
 } from "@stripe/react-stripe-js";
 
 
-const RASPK:string = process.env.REACT_APP_STRIPE_PUBLIC_KEY!
+const RASPK:string = process.env.REACT_APP_STRIPE_PUBLIC_KEY
 const promise = loadStripe(RASPK);
 
 export default function CheckOutFormWrapper() {
@@ -22,25 +22,25 @@ export default function CheckOutFormWrapper() {
 
 
 export const StripeButton = () => {
-  const handleClick = async (event) => {
+  const handleClick = async (event:any) => {
     // Get Stripe.js instance
-    const stripe = await promise;
+    // const stripe = await promise;
 
-    // Call your backend to create the Checkout Session
-    const response = await fetch('/create-checkout-session', { method: 'POST' });
+    // // Call your backend to create the Checkout Session
+    // const response = await fetch('/create-checkout-session', { method: 'POST' });
 
-    const session = await response.json();
-    console.log('session',session)
-    // When the customer clicks on the button, redirect them to Checkout.
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+    // const session = await response.json();
+    // console.log('session',session)
+    // // When the customer clicks on the button, redirect them to Checkout.
+    // const result = await stripe.redirectToCheckout({
+    //   sessionId: session.id,
+    // });
 
-    if (result.error) {
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `result.error.message`.
-    }
+    // if (result.error) {
+    //   // If `redirectToCheckout` fails due to a browser or network
+    //   // error, display the localized error message to your customer
+    //   // using `result.error.message`.
+    // }
   };
 
   return (
@@ -53,7 +53,7 @@ export const StripeButton = () => {
 const CheckoutForm = () => {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
-  const [processing, setProcessing] = useState('');
+  const [processing, setProcessing] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
   const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
@@ -92,12 +92,13 @@ const CheckoutForm = () => {
       }
     }
   };
-  const handleChange = async (event) => {
+  const handleChange = async (event:any) => {
     // Listen for changes in the CardElement and display any errors as the customer types their card details
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
-  const handleSubmit = async ev => {
+
+  const handleSubmit = async (ev:any) => {
     ev.preventDefault();
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {

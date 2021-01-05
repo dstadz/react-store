@@ -5,7 +5,8 @@ import { useSetRecoilState } from 'recoil'
 import { collectionState } from '../../utils/store';
 import { firestore, convertCollectionsSnapshotToMap } from '../../utils/firebase/firebase'
 
-import CollectionOverview from '../../Components/CollectionOverview/CollectionOverviewContainer'
+import CollectionOverviewContainer from '../../Components/CollectionOverview/CollectionOverviewContainer'
+// import CollectionOverview from '../../Components/CollectionOverview/CollectionOverviewContainer'
 import CollectionPage from '../CollectionPage/CollectionContainer'
 import WithSpinner from '../../Components/Spinner/WithSpinner'
 
@@ -29,7 +30,7 @@ const Shop = ({ match, props }) => {
 
   return (
     <div>
-      <Route exact path={`${match.path}`} component={CollectionOverview} />
+      <Route exact path={`${match.path}`} component={CollectionOverviewContainer} />
       <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
     </div>
   )

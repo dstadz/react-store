@@ -25,7 +25,9 @@ const SignIn = () => {
     } catch (error) { console.log(error); }
   };
 
-  const handleChange = e => setUser({ [e.target.name]: e.target.value });
+  const handleChange = e => setUser({
+    [e.target.name]: e.target.value
+  });
 
   return (
     <SignInContainer>

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { withRouter, useHistory } from "react-router-dom";
+import { withRouter, RouteComponentProps , useHistory } from "react-router-dom";
 import { MenuItemContainer } from './styles'
 
 interface MenuItemInterface {
@@ -11,7 +11,7 @@ interface MenuItemInterface {
   history: string,
 }
 
-const MenuItem: FC<MenuItemInterface> = ({
+const MenuItem: FC<MenuItemInterface & RouteComponentProps > = ({
   title,
   imageUrl,
   linkUrl,
@@ -39,3 +39,4 @@ const MenuItem: FC<MenuItemInterface> = ({
 }
 
 export default withRouter(MenuItem);
+// export default withRouter(MenuItem);

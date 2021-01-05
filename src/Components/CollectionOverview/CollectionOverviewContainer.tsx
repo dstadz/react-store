@@ -1,5 +1,5 @@
 import React from 'react'
-import { Query } from 'react-apollo'
+import { Query, QueryResult } from 'react-apollo';
 import { gql } from 'apollo-boost'
 
 import CollectionOverview from './CollectionOverview'
@@ -20,13 +20,11 @@ const GET_COLLECTIONS = gql`
 }
 `
 
-
-
-
 const CollectionOverviewContainer = () => (
   <Query query={GET_COLLECTIONS}>
-    {({ loading, error, data }) => {
+    {({ loading, error, data }: QueryResult<any, Record<string, any>>): JSX.Element => {
       if (loading) return <Spinner/>
+      console.log(data)
       return <CollectionOverview collections={data.collections} />
     }}
   </Query>

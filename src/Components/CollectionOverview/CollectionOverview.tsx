@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { FC } from 'react'
 import {useRecoilValue } from 'recoil'
 import { collectionState } from '../../utils/store'
 import CollectionPreview from '../CollectionPreview/CollectionPreview'
-import { CollectionsOverviewContainer } from './styles';
+import CollectionPreviewInterface from '../../utils/interfaces/CollectionPreview'
 
-const CollectionOverview = ({ collections }:{}[]) => {
+import { CollectionsOverviewContainer } from './styles';
+import { title } from 'process'
+
+interface CollectionOverviewInterface {
+  collections: CollectionPreviewInterface[]
+}
+
+const CollectionOverview: FC<CollectionOverviewInterface> = ({ collections }) => {
+  console.log(collections)
   // const collections = useRecoilValue(collectionState)
   return (
     <CollectionsOverviewContainer>
       {collections.map(collection => (
-        <CollectionPreview key={collection.id} {...collection} />
+        <CollectionPreview {...collection} />
       ))}
     </CollectionsOverviewContainer>
   )

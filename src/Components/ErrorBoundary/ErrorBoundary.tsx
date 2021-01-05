@@ -5,20 +5,19 @@ import {
   ErrorImageText
 } from './styles'
 
-class ErrorBoundary extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      hasErrored: false
-    }
+
+
+class ErrorBoundary extends React.Component<any, {hasErrored:boolean}> {
+  constructor(props:any) {
+    super(props)
+    this.state = { hasErrored: false }
   }
 
-  static getDerivedStateFromError(err) {
-
+  static getDerivedStateFromError(err:any) {
     return { hasErrored: true}
   }
 
-  componentDidCatch(err, info) {
+  componentDidCatch(err:any, info:any) {
     console.log(err)
   }
 
