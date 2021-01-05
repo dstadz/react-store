@@ -15,31 +15,31 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 
 
-const cache = new InMemoryCache()
-const httpLink = createHttpLink({
-  uri: 'https://crwn-clothing.com'
-})
-const client = new ApolloClient({
-  cache,
-  link: httpLink
-})
+// const cache = new InMemoryCache()
+// const httpLink = createHttpLink({
+//   uri: 'https://crwn-clothing.com'
+// })
+// const client = new ApolloClient({
+//   cache,
+//   link: httpLink
+// })
 
 
 
-client.writeData({
-  data: {
-    cartHidden: true
-  }
-})
+// client.writeData({
+//   data: {
+//     cartHidden: true
+//   }
+// })
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
+  // <ApolloProvider client={client}>
 		<BrowserRouter>
 			<RecoilRoot>
 				<App />
 			</RecoilRoot>
-		</BrowserRouter>
-  </ApolloProvider>,
+		</BrowserRouter>,
+  // {/* </ApolloProvider>, */}
   document.getElementById('root')
 );
 

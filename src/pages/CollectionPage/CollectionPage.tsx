@@ -13,19 +13,21 @@ import {
 
 const CollectionPage = ( match ) => {
   const route = match.match.params.collectionId
-  // const collections = useRecoilValue(collectionState)
-  // const [collection,setCollection] = useState([])
+  const collections = useRecoilValue(collectionState)
+  const [collection,setCollection] = useState([])
 
-  // const getCollection = async() => {
-    //   await setCollection(x)
-    // }
+  const getCollection = async() => {
+      await setCollection(x)
+    }
+
+    console.log(match)
+    console.log(collections)
 
 
+  useEffect(() => { getCollection() },[])
 
-  // useEffect(() => { getCollection() },[])
-
-  // const x = collections.find(col => route === col.routeName)
-  const { title, items } = match.collection
+  const x = collections.find(col => route === col.routeName)
+  const { title, items } = x
   return (
     <CollectionPageContainer>
       <CollectionTitle>{title}</CollectionTitle>

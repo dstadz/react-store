@@ -5,13 +5,13 @@ import { useSetRecoilState } from 'recoil'
 import { collectionState } from '../../utils/store';
 import { firestore, convertCollectionsSnapshotToMap } from '../../utils/firebase/firebase'
 
-import CollectionOverviewContainer from '../../Components/CollectionOverview/CollectionOverviewContainer'
-// import CollectionOverview from '../../Components/CollectionOverview/CollectionOverviewContainer'
-import CollectionPage from '../CollectionPage/CollectionContainer'
-// import WithSpinner from '../../Components/Spinner/WithSpinner'
+// import CollectionOverviewContainer from '../../Components/CollectionOverview/CollectionOverviewContainer'
+import CollectionOverview from '../../Components/CollectionOverview/CollectionOverview'
+import CollectionPage from '../CollectionPage/CollectionPage'
+import WithSpinner from '../../Components/Spinner/WithSpinner'
 
 
-// const CollectionsPageWithSpinner = WithSpinner(CollectionPage)
+const CollectionsPageWithSpinner = WithSpinner(CollectionPage)
 
 const Shop = ({ match, props }) => {
   const setCollections = useSetRecoilState(collectionState)
@@ -30,18 +30,19 @@ const Shop = ({ match, props }) => {
 
   return (
     <div>
-      <Route exact path={`${match.path}`} component={CollectionOverviewContainer} />
-      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
-    </div>
+      <Route exact path={`${match.path}`} component={CollectionOverview} />
+
+      <Route path={`${match.path}/:collectionId`}
+        render={() =>
+          <CollectionsPageWithSpinner
+            isLoading={isLoading}
+            {...props}
+          />
+        }
+      />
+  </div>
   )
 }
-
+      
+      {/* <Route path={`${match.path}/:collectionId`} component={CollectionPage} /> */}
 export default Shop
-
-{/* <Route path={`${match.path}/:collectionId`}
-  render={() =>
-    <CollectionsPageWithSpinner
-      isLoading={isLoading}
-      {...props}
-    />
-  } */}

@@ -5,15 +5,14 @@ import CollectionPreview from '../CollectionPreview/CollectionPreview'
 import CollectionPreviewInterface from '../../utils/interfaces/CollectionPreview'
 
 import { CollectionsOverviewContainer } from './styles';
-import { title } from 'process'
 
 interface CollectionOverviewInterface {
   collections: CollectionPreviewInterface[]
 }
 
-const CollectionOverview: FC<CollectionOverviewInterface> = ({ collections }) => {
+const CollectionOverview: FC<CollectionOverviewInterface> = () => {
+  const collections = useRecoilValue(collectionState)
   console.log(collections)
-  // const collections = useRecoilValue(collectionState)
   return (
     <CollectionsOverviewContainer>
       {collections.map(collection => (

@@ -39,4 +39,3 @@ const MenuItem: FC<MenuItemInterface & RouteComponentProps > = ({
 }
 
 export default withRouter(MenuItem);
-// export default withRouter(MenuItem);

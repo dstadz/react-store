@@ -20,14 +20,14 @@ const GET_COLLECTIONS = gql`
 }
 `
 
-const CollectionOverviewContainer = () => (
-  <Query query={GET_COLLECTIONS}>
-    {({ loading, error, data }: QueryResult<any, Record<string, any>>): JSX.Element => {
-      if (loading) return <Spinner/>
-      console.log(data)
-      return <CollectionOverview collections={data.collections} />
-    }}
-  </Query>
-)
+// const CollectionOverviewContainer = () => (
+//   <Query query={GET_COLLECTIONS}>
+//     {({ loading, error, data }: QueryResult<any, Record<string, any>>): JSX.Element => {
+//       if (loading) return <Spinner/>
+//       console.log(data)
+//       return <CollectionOverview collections={data.collections} />
+//     }}
+//   </Query>
+// )
 
-export default CollectionOverviewContainer
+// export default CollectionOverviewContainer

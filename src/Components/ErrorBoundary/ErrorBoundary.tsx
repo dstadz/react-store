@@ -22,6 +22,7 @@ class ErrorBoundary extends React.Component<any, {hasErrored:boolean}> {
   }
 
   render() {
+    console.log('error boundary')
     if (this.state.hasErrored) {
       return(
       <ErrorImageOverlay>

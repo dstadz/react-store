@@ -15,7 +15,7 @@ const Routes = () => {
   const user = useRecoilValue(userState)
   return (
     <Switch>
-      <ErrorBoundary>
+      {/* <ErrorBoundary> */}
         <Suspense fallback={<Spinner/>}>
           <Route exact path='/' component={HomePage} />
         <Route path='/shop' component={ShopPage} />
@@ -28,7 +28,7 @@ const Routes = () => {
           }
         />
         </Suspense>
-      </ErrorBoundary>
+      {/* </ErrorBoundary> */}
     </Switch>
   )
 }
