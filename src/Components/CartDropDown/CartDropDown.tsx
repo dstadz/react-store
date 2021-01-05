@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
-import CartItem from '../../Components/CartItem/Cartitem'
+import CartItem from '../CartItem/Cartitem'
 import { cartListState, isDropDownVisible } from '../../utils/store'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import {
