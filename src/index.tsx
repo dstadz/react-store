@@ -24,23 +24,7 @@ const client = new ApolloClient({
   link: httpLink
 })
 
-client.query({
-  query: gql`
-  {
-    getCollectionsByTitle(title: "hats") {
-      id
-      title
-      items {
-        id
-        name
-        price
-        imageUrl
-      }
-    }
-  }
-  `
-})
-// .then(res => console.log(res))
+
 
 client.writeData({
   data: {
