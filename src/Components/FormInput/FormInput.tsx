@@ -6,22 +6,21 @@ import {
   FormInputLabel
 } from './styles';
 
-interface FormElement {
-  type?:string,
-  name?:string,
-  value?:string
 
-}
 
-interface FormPropsInterface {
-  [index:number]: FormElement
-}
 const FormInput = (
   handleChange: ()=> void,
-  label: string,
-  ...props: FormPropsInterface[] ) => (
+  type?:string,
+  name?:string,
+  value?:string,
+  onChange?:()=>void,
+  label?:string,
+  required?:boolean
+) => {
+  const props = { type, name, value, label, required}
+  return (
   <GroupContainer>
-    <FormInputContainer onChange={handleChange} {...props} />
+    <FormInputContainer />
     {label
     ? <FormInputLabel
       //className={props.value.length ? 'shrink' : ''}
@@ -31,6 +30,7 @@ const FormInput = (
     : null
     }
   </GroupContainer>
-);
+  )
+}
 
 export default FormInput;
